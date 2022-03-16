@@ -8,7 +8,7 @@ Requirements:
   -Get current weight for electronic scale
   -Expect new weight on the electronic scale to be the addition of the weight of newly scanned item
 3.Customer wishes to checkout
-4.Customer pays with a coin
+4.Customer pays with a coin (Justin)
   -Coin slot observer to check if slot is open
   -Observe what coin inserted
   -Add ammount of money based on what coin was inserted
