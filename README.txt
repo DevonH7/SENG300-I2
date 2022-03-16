@@ -13,6 +13,6 @@ Requirements:
   -Observe what coin inserted
   -Add ammount of money based on what coin was inserted
   -Check if cost is reached everytime coin is inserted
-5.Customer pays with a banknote
+5.Customer pays with a banknote - (Manbir)
 
 TestCases:
