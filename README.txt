@@ -3,7 +3,7 @@ Requirements:
   -Takes in barcode of item
   -Gathers items information (Price,weight,etc)
   -Adds cost of item to currect cost
-2.Customer places item in bagging area
+2.Customer places item in bagging area (Kevin)
   -Checks for weight of item
   -Get current weight for electronic scale
   -Expect new weight on the electronic scale to be the addition of the weight of newly scanned item
