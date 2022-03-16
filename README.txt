@@ -18,4 +18,9 @@ Requirements:
   -Observe what banknote inserted
   -Add ammount of money based on what banknote was inserted
   -Check if cost is reached everytime banknote is inserted
+
 TestCases:
+-Each person who works on the software control also works on the test cases.
+-Check your partner's test cases (2 and 4 check each other's test case, and 3 and 5 check each other's test cases)
+-If you think your partner is missing a test case for their task, you can message them to tell them what they should add (you can also add it yourself but that might get messy so it's best to check)
+-1 will be 2 people, who will both work on the test cases and version control.
