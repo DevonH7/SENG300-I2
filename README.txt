@@ -14,5 +14,8 @@ Requirements:
   -Add ammount of money based on what coin was inserted
   -Check if cost is reached everytime coin is inserted
 5.Customer pays with a banknote - (Manbir)
-
+  -Banknote slot observer to check if slot is open
+  -Observe what banknote inserted
+  -Add ammount of money based on what banknote was inserted
+  -Check if cost is reached everytime banknote is inserted
 TestCases:
