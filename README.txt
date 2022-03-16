@@ -10,7 +10,7 @@ Requirements:
 3.Customer wishes to checkout
 4.Customer pays with a coin
   -Coin slot observer to check if slot is open
-  -Coin
+  -Observe what coin inserted
   -Add ammount of money based on what coin was inserted
 5.Customer pays with a banknote
 
