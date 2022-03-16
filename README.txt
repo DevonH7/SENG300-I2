@@ -1,5 +1,5 @@
 Requirements:
-1.Customer scans an item
+1.Customer scans an item -(James, Bassel)
   -Takes in barcode of item
   -Gathers items information (Price,weight,etc)
   -Adds cost of item to currect cost
