@@ -8,8 +8,8 @@ Requirements:
   -Get current weight for electronic scale
   -Expect new weight on the electronic scale to be the addition of the weight of newly scanned item
 3.Customer wishes to checkout (zhongmin)
-  -disable the scanner and keep checking the weight
-  -check how the customer willing to pay
+  -keep looping and checking the weight
+  -check how the customer willing to pay (e.g. button pressed)
 4.Customer pays with a coin (Justin)
   -Coin slot observer to check if slot is open
   -Observe what coin inserted
