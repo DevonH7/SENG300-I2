@@ -1,0 +1,10 @@
+/AbstractDeviceObserver.class
+/BanknoteDispenserObserver.class
+/BanknoteSlotObserver.class
+/BanknoteStorageUnitObserver.class
+/BanknoteValidatorObserver.class
+/BarcodeScannerObserver.class
+/CardReaderObserver.class
+/CoinDispenserObserver.class
+/CoinSlotObserver.class
+/CoinStorageUnitObserver.class
