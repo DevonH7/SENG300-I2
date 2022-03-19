@@ -1,3 +1,4 @@
+package selfcheckout_software;
 import java.math.BigDecimal;
 import java.util.Currency;
 
