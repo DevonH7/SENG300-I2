@@ -17,6 +17,7 @@ public class BanknoteController implements BanknoteValidatorObserver, BanknoteSt
 	
 	public BanknoteController(SelfCheckoutStation s) {
 		s.banknoteValidator.attach(this);
+		s.banknoteStorage.attach(this);
 		availableFunds = 0;
 	}
 
