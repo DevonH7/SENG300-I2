@@ -1,4 +1,4 @@
-package selfcheckout_software
+package selfcheckout_software;
 import java.util.ArrayList;
 
 import org.lsmr.selfcheckout.Item;
@@ -46,6 +46,9 @@ public class logic implements ElectronicScaleObserver{
 			throw new SimulationException("Please put the correct items in the bagging area");
 		}
 		}
+	public double get_expected_weight() {
+		return this.expectedWeight;
+	}
 
 	@Override
 	public void enabled(AbstractDevice<? extends AbstractDeviceObserver> device) {

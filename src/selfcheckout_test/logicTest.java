@@ -1,4 +1,5 @@
 package selfcheckout_test;
+import selfcheckout_software.*;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class logicTest {
 	public void testBaggingItem() throws OverloadException{
 		e.endConfigurationPhase();
 		test.bagItem(item3, e);
-		Assert.assertTrue(test.expectedWeight==7);
+		assertEquals((double)7, test.get_expected_weight(),1);
 		
 	}
 	
