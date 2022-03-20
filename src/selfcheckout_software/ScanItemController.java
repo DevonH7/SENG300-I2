@@ -5,6 +5,7 @@ import org.lsmr.selfcheckout.Barcode;
 import org.lsmr.selfcheckout.BarcodedItem;
 import org.lsmr.selfcheckout.devices.AbstractDevice;
 import org.lsmr.selfcheckout.devices.BarcodeScanner;
+import org.lsmr.selfcheckout.devices.SimulationException;
 import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 import org.lsmr.selfcheckout.devices.observers.BarcodeScannerObserver;
 import org.lsmr.selfcheckout.products.BarcodedProduct;
@@ -14,6 +15,7 @@ public class ScanItemController implements BarcodeScannerObserver,  {
 	
 	private ArrayList<Product> product = new ArrayList<Product>();
 	private BigDecimal total;
+	private double expectedWeight;
 	
 	public ScanItemController() {
 		
@@ -37,10 +39,38 @@ public class ScanItemController implements BarcodeScannerObserver,  {
 		
 	}
 	
-	public void addItem(BarcodedProduct Item) {
-		product.add(Item);
-		total += Item.getPrice();
+	/**
+	 * Adds the weight and price of the item and product related to the barcode
+	 * 
+	 * @param barcode
+	 *            The barcode that was scanned in
+	 * @param productList
+	 * 			  List of all products with a barcode
+	 * @param itemList
+	 * 			  List of all items with a barcode
+	 * @throws SimulationException
+	 *             If there is no product or item with the respective barcode
+	 */
+	public void addItem(Barcode barcode, BarcodedProduct[] productList, BarcodedItem[] itemList){
+		BarcodedProduct product;
+		BarcodedItem item;
+		for(int i = 0; i < productList.length; i++) {
+			if(barcode==productList[i].getBarcode()) {
+				product = productList[i];
+				break;
+			}
+		}
+		if(product == null) throw new SimulationException("Barcode does not exist in products")
 		
+		for(int i = 0; i < itemList.length; i++) {
+			if(barcode==itemList[i].getBarcode()) {
+				item = itemList[i];
+				break;
+			}
+		}
+		if(item == null) throw new SimulationException("Barcode does not exist in items")
+		
+		total += product.getPrice();
+		expectedWeight += item.getWeight();
 	}
-	
 }
