@@ -13,7 +13,6 @@ import org.lsmr.selfcheckout.products.Product;
 
 public class ScanItemController implements BarcodeScannerObserver  {
 	
-	private ArrayList<Product> product = new ArrayList<Product>();
 	private BigDecimal total;
 	private double expectedWeight;
 	
@@ -70,7 +69,7 @@ public class ScanItemController implements BarcodeScannerObserver  {
 		}
 		if(item == null) throw new SimulationException("Barcode does not exist in items");
 		
-		total = total.add(product.getPrice());
+		total += product.getPrice();
 		expectedWeight += item.getWeight();
 	}
 }
