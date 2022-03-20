@@ -44,11 +44,22 @@ public class test_wish_to_checkout {
 		E.attach(w_observer);
 		Item test_item1 = new Item(20) {};
 		Item test_item2 = new Item(40) {};
+		E.endConfigurationPhase();
 		E.add(test_item1);
 		E.enable();
 		
 		E.add(test_item2);
 		
+		test_object.wish_checkout(payment);
+		
+	}
+	
+	@Test(expected = SimulationException.class)
+	public void test_fail_to_accept()throws OverloadException,DisabledException{
+		AbstractDeviceObserverStub extra_obStub = new AbstractDeviceObserverStub();
+		test_object.attach(extra_obStub);
+		E.endConfigurationPhase();
+		test_object.endConfigurationPhase();
 		test_object.wish_checkout(payment);
 		
 	}
@@ -62,6 +73,11 @@ public class test_wish_to_checkout {
 		test_object.wish_checkout(payment);
 		assertTrue("this should be true",test_object.isDisabled());
 		
+	}
+	
+	@Test
+	public void test_has_space() {
+		assertFalse(test_object.hasSpace());
 		
 	}
 	
