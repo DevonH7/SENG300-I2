@@ -14,7 +14,7 @@ public class CoinController implements CoinValidatorObserver, CoinStorageUnitObs
 	private BigDecimal availableFunds = new BigDecimal(0);
 	private Boolean storageFull;
 	
-	public PayWithCoin(Coin c) {
+	public CoinController(Coin c) {
 		this.c = c;
 	}
 	
