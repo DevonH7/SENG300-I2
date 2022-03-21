@@ -16,10 +16,10 @@ import org.lsmr.selfcheckout.devices.observers.*;
 
 import junit.extensions.TestSetup;
 
-public class testPayWithCoin {
+public class testCoinController {
 	
 	private BigDecimal coinValue;
-	private PayWithCoin test_object;
+	private CoinController test_object;
 	private Coin c;
 	private CoinValidator v;
 	private Currency currency = Currency.getInstance("CAD");
@@ -30,7 +30,7 @@ public class testPayWithCoin {
 		this.coinValue = new BigDecimal(1);
 		//this.c = new Coin(currency, coinValue);	
 		this.denoms = Arrays.asList(new BigDecimal(1));
-		this.test_object = new PayWithCoin(c);
+		this.test_object = new CoinController(c);
 		this.v = new CoinValidator(currency, denoms);
 	}
 	
@@ -40,6 +40,32 @@ public class testPayWithCoin {
 		test_object.validCoinDetected(v, value);
 		assertEquals(test_object.getAvailableFunds(), value);
 	}
+	
+	@Test
+	public void testStorageUnitFull() {
+		test_object.setStorageFull(true);
+		
+		BigDecimal value = new BigDecimal(5);
+		BigDecimal expectedValue = new BigDecimal(0);
+		test_object.validCoinDetected(v, value);
+		assertEquals(test_object.getAvailableFunds(), expectedValue);
+	}
+	
+	@Test
+	public void testCoinsUnloaded() {
+		CoinStorageUnit unit = new CoinStorageUnit(100);
+		test_object.coinsUnloaded(unit);
+		assertEquals(test_object.getStorageFull(), false);
+	}
+	
+	@Test
+	public void testCoinsFull() {
+		CoinStorageUnit unit = new CoinStorageUnit(100);
+		test_object.coinsFull(unit);
+		assertEquals(test_object.getStorageFull(), true);
+	}
+	
+	
 	
 	
 	

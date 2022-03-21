@@ -18,7 +18,7 @@ import junit.framework.Assert;
 
 public class test_wish_to_checkout {
 
-	private SCSLogic test_object;
+	private wish_checkout test_object;
 	private AbstractDeviceObserverStub payment;
 	private ElectronicScaleObserverStub w_observer;
 	private ElectronicScale E;
@@ -26,7 +26,7 @@ public class test_wish_to_checkout {
 	@Before
 	public void TestSetup() {
 		this.E = new ElectronicScale(100, 1);
-		this.test_object = new SCSLogic(E);
+		this.test_object = new wish_checkout(E);
 		this.payment = new AbstractDeviceObserverStub();
 		this.w_observer = new ElectronicScaleObserverStub();
 		
