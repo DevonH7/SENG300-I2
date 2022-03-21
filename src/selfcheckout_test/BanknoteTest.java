@@ -18,7 +18,6 @@ import org.lsmr.selfcheckout.products.BarcodedProduct;
 import selfcheckout_software.BanknoteController;
 
 public class BanknoteTest {
-	
 	private BanknoteController pay;
 	private SelfCheckoutStation s;
 	
@@ -44,11 +43,20 @@ public class BanknoteTest {
 	
 	// Customer paying for a $10 item
 	@Test
-	public void testBanknoteControllerMany() throws DisabledException, OverloadException {
+	public void testBanknoteControllerEnough() throws DisabledException, OverloadException {
 		
 		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
 		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),10));
 		assertEquals(pay.hasSufficientFunds(new BigDecimal(10)),true);
+	}
+	
+	// Customer paying for a $10 item
+	@Test
+	public void testBanknoteControllerMany() throws DisabledException, OverloadException {
+		for(int i = 0;i<500;i++) {
+			s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+		}
+		assertEquals(pay.getCurrentFunds(),500*5);
 	}
 	
 	// Customer does not have sufficient funds for $10
