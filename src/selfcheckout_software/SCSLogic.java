@@ -19,9 +19,6 @@ public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements 
 		this.electronic = e;
 	}
 	
-	
-	
-	
 	public void wish_checkout(AbstractDeviceObserver payment_method) throws OverloadException, DisabledException  {
 		
 			this.attach(payment_method);
@@ -44,18 +41,8 @@ public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements 
 				
 			}
 			//....might need to call the matched payment method
-		
-		
+			
 	}
-
-
-
-
-
-
-
-
-
 
 	@Override
 	public void accept(AbstractDeviceObserver thing) throws OverloadException, DisabledException {

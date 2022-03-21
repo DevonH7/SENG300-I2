@@ -10,6 +10,8 @@ import org.lsmr.selfcheckout.devices.OverloadException;
 import org.lsmr.selfcheckout.devices.SimulationException;
 import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 import org.lsmr.selfcheckout.devices.observers.ElectronicScaleObserver;
+import selfcheckout_software.SCSLogic;
+import selfcheckout_test.test_wish_to_checkout;
 
 public class logic implements ElectronicScaleObserver{
 	
