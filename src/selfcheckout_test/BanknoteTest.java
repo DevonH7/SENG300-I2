@@ -62,12 +62,17 @@ public class BanknoteTest {
 	
 	@Test
 	public void testBanknoteControllerFull() throws DisabledException, OverloadException {
-		Barcode itemCode = new Barcode(new Numeral[] {Numeral.one,Numeral.one});
-		for(int i = 0;i<s.BANKNOTE_STORAGE_CAPACITY;i++)
-			do {
+		for(int i = 0;i<s.BANKNOTE_STORAGE_CAPACITY;i++) {
 			s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
-			}while(s.banknoteInput.)
-		//assertEquals(pay.getCurrentFunds(),5*s.BANKNOTE_STORAGE_CAPACITY);
+			while(!s.banknoteInput.hasSpace()) {
+				s.banknoteInput.removeDanglingBanknote();
+				s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+			}
+		}
+		
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+		
+		assertEquals(5*s.BANKNOTE_STORAGE_CAPACITY,pay.getCurrentFunds());
 	}
 	
 	@Test
