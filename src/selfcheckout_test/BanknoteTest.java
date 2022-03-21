@@ -19,21 +19,11 @@ import selfcheckout_software.BanknoteController;
 
 public class BanknoteTest {
 	
-	private HashMap<Barcode, BarcodedProduct> products = new HashMap<Barcode, BarcodedProduct>();
 	private BanknoteController pay;
 	private SelfCheckoutStation s;
 	
 	@Before
-	public void setup() {
-		products.put(new Barcode(new Numeral[] {Numeral.one,Numeral.one}), 
-				new BarcodedProduct(new Barcode(new Numeral[] {Numeral.one,Numeral.one}), "Bread", new BigDecimal(4.99)));
-		products.put(new Barcode(new Numeral[] {Numeral.two,Numeral.two}), 
-				new BarcodedProduct(new Barcode(new Numeral[] {Numeral.two,Numeral.two}), "Milk", new BigDecimal(2.50)));
-		products.put(new Barcode(new Numeral[] {Numeral.three,Numeral.three}), 
-				new BarcodedProduct(new Barcode(new Numeral[] {Numeral.three,Numeral.three}), "Oreos", new BigDecimal(10.99)));
-		products.put(new Barcode(new Numeral[] {Numeral.four,Numeral.four}), 
-				new BarcodedProduct(new Barcode(new Numeral[] {Numeral.four,Numeral.four}), "Orange", new BigDecimal(0.99)));
-	    
+	public void setup() {	    
 	    Currency currency = Currency.getInstance("CAD");
 	    int[] banknoteDenoms = new int[] {5,10,20,50};
 	    BigDecimal[] coinDenominations = new BigDecimal[]{new BigDecimal("0.05"), new BigDecimal("0.10"), 
@@ -46,18 +36,38 @@ public class BanknoteTest {
 	
 	@Test
 	public void testBanknoteControllerRegular() throws DisabledException, OverloadException {
-		Barcode itemCode = new Barcode(new Numeral[] {Numeral.one,Numeral.one});
 		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
 		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),10));
 		assertEquals(pay.getCurrentFunds(),15);
+		assertEquals(pay.getValidBanknotes(),2);
+	}
+	
+	// Customer paying for a $10 item
+	@Test
+	public void testBanknoteControllerMany() throws DisabledException, OverloadException {
+		
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),10));
+		assertEquals(pay.hasSufficientFunds(new BigDecimal(10)),true);
+	}
+	
+	// Customer does not have sufficient funds for $10
+	@Test
+	public void testBanknoteControllerNotEnough() throws DisabledException, OverloadException {
+		
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),10));
+		assertEquals(pay.hasSufficientFunds(new BigDecimal(20)),false);
 	}
 	
 	@Test
 	public void testBanknoteControllerFull() throws DisabledException, OverloadException {
 		Barcode itemCode = new Barcode(new Numeral[] {Numeral.one,Numeral.one});
-		for(int i = 0;i<75;i++)
+		for(int i = 0;i<s.BANKNOTE_STORAGE_CAPACITY;i++)
+			do {
 			s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
-		assertEquals(pay.getCurrentFunds(),5*s.BANKNOTE_STORAGE_CAPACITY);
+			}while(s.banknoteInput.)
+		//assertEquals(pay.getCurrentFunds(),5*s.BANKNOTE_STORAGE_CAPACITY);
 	}
 	
 	@Test
@@ -67,7 +77,17 @@ public class BanknoteTest {
 		assertEquals(1,pay.getInvalidBanknotes());
 	}
 	
-	
+    @Test
+    public void testPayWithOnlyInvalidDenominationBanknotes() throws DisabledException, OverloadException {   
+        s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),7));
+        assertEquals(pay.getInvalidBanknotes(), 1);
+    }
+    
+    @Test (expected = DisabledException.class)
+    public void testPayWithDisabledBanknoteSlot() throws DisabledException, OverloadException {
+        s.banknoteInput.disable();
+        s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),10));
+    }    
 	
 	
 }
