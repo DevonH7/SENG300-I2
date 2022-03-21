@@ -42,7 +42,7 @@ public class testBagging {
 		this.e = new ElectronicScale(50,1);
 		this.test = new baggingItem(e);
 		item1 = new ItemClass(5);
-		item2 = new ItemClass(50);
+		item2 = new ItemClass(60);
 		item3 = new ItemClass(7);
 		
 	}
