@@ -14,6 +14,7 @@ public class BanknoteController implements BanknoteValidatorObserver, BanknoteSt
 
 	private int availableFunds;
 	private int validBanknotes = 0;
+	private int invalidBanknotes = 0;
 	private boolean isFull = false;
 	
 	public BanknoteController(SelfCheckoutStation s) {
@@ -32,13 +33,14 @@ public class BanknoteController implements BanknoteValidatorObserver, BanknoteSt
 	public void validBanknoteDetected(BanknoteValidator validator, Currency currency, int value) {
 		if(!isFull) {
 			availableFunds+=value;
+			validBanknotes++;
 		}
 		
 	}
 
 	@Override
 	public void invalidBanknoteDetected(BanknoteValidator validator) {
-		
+		invalidBanknotes++;
 	}
 
 	@Override
@@ -64,6 +66,14 @@ public class BanknoteController implements BanknoteValidatorObserver, BanknoteSt
 	
 	public int getCurrentFunds() {
 		return availableFunds;
+	}
+	
+	public int getValidBanknotes() {
+		return validBanknotes;
+	}
+	
+	public int getInvalidBanknotes() {
+		return invalidBanknotes;
 	}
 	
 	

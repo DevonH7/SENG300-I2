@@ -52,5 +52,22 @@ public class BanknoteTest {
 		assertEquals(pay.getCurrentFunds(),15);
 	}
 	
+	@Test
+	public void testBanknoteControllerFull() throws DisabledException, OverloadException {
+		Barcode itemCode = new Barcode(new Numeral[] {Numeral.one,Numeral.one});
+		for(int i = 0;i<75;i++)
+			s.banknoteInput.accept(new Banknote(Currency.getInstance("CAD"),5));
+		assertEquals(pay.getCurrentFunds(),5*s.BANKNOTE_STORAGE_CAPACITY);
+	}
+	
+	@Test
+	public void testBanknoteControllerInvalidBanknote() throws DisabledException, OverloadException {
+		s.banknoteInput.accept(new Banknote(Currency.getInstance("USD"),5));
+		assertEquals(0,pay.getCurrentFunds());
+		assertEquals(1,pay.getInvalidBanknotes());
+	}
+	
+	
+	
 	
 }
