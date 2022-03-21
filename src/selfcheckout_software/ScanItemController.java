@@ -72,4 +72,12 @@ public class ScanItemController implements BarcodeScannerObserver  {
 		total.add(product.getPrice());
 		expectedWeight += item.getWeight();
 	}
+	
+		public BigDecimal getTotal() {
+		return total;
+	}
+	
+	public double getExpectedWeight() {
+		return expectedWeight;
+	}	
 }
