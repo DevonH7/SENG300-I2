@@ -8,14 +8,14 @@ import org.lsmr.selfcheckout.devices.OverloadException;
 import org.lsmr.selfcheckout.devices.SimulationException;
 import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 
-public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements Acceptor<AbstractDeviceObserver>{
+public class wish_checkout extends AbstractDevice<AbstractDeviceObserver> implements Acceptor<AbstractDeviceObserver>{
 	
 	private ElectronicScale electronic;
 	
 	
 	
 	
-	public SCSLogic(ElectronicScale e) {
+	public wish_checkout(ElectronicScale e) {
 		this.electronic = e;
 	}
 	

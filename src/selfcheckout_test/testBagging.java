@@ -35,7 +35,7 @@ public class testBagging {
 	private Item item2;
 	private Item item3;
 	private Item item4;
-	private logic test;
+	private baggingItem test;
 	
 	@Before
 	public void setUp() throws Exception {
