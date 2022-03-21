@@ -41,6 +41,30 @@ public class testPayWithCoin {
 		assertEquals(test_object.getAvailableFunds(), value);
 	}
 	
+	@Test
+	public void testStorageUnitFull() {
+		test_object.setStorageFull(true);
+		
+		BigDecimal value = new BigDecimal(5);
+		BigDecimal expectedValue = new BigDecimal(0);
+		test_object.validCoinDetected(v, value);
+		assertEquals(test_object.getAvailableFunds(), expectedValue);
+	}
+	
+	@Test
+	public void testCoinsUnloaded() {
+		CoinStorageUnit unit = new CoinStorageUnit(100);
+		test_object.coinsUnloaded(unit);
+		assertEquals(test_object.getStorageFull(), false);
+	}
+	
+	@Test
+	public void testCoinsFull() {
+		CoinStorageUnit unit = new CoinStorageUnit(100);
+		test_object.coinsFull(unit);
+		assertEquals(test_object.getStorageFull(), true);
+	}
+	
 	
 	
 	
