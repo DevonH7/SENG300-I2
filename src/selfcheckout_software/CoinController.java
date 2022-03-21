@@ -8,13 +8,13 @@ import org.lsmr.selfcheckout.devices.observers.*;
 
 // logic for the use case "customer wants to pay with coin" by implementing the CoinValidatorObserver
 // and adding value of a coin to a local variable availableFunds if the proper event occurs (a valid coin is detected). 
-public class PayWithCoin implements CoinValidatorObserver, CoinStorageUnitObserver {
+public class CoinController implements CoinValidatorObserver, CoinStorageUnitObserver {
 	
 	private Coin c;
 	private BigDecimal availableFunds = new BigDecimal(0);
 	private Boolean storageFull;
 	
-	public PayWithCoin(Coin c) {
+	public CoinController(Coin c) {
 		this.c = c;
 	}
 	
