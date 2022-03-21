@@ -83,5 +83,11 @@ public class test_wish_to_checkout {
 		
 	}
 	
+	@Test
+	public void test_not_expected_observer() throws OverloadException, DisabledException {
+		AbstractDeviceObserverStub extra_obStub = new AbstractDeviceObserverStub();
+		test_object.attach(extra_obStub);
+		test_object.accept(payment);
+	}
 
 }
