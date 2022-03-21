@@ -1,5 +1,7 @@
 package selfcheckout_test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -19,11 +21,13 @@ public class ScanItemControllerTest {
 	private BigDecimal total;
 	private double expectedWeight;
 	private ArrayList<BarcodedProduct> productList;
-	private 
+	private ArrayList<BarcodedItem> itemlist;
+	private ScanItemController scanner;
 	@Before
 	public void Setup() {
 		productList = new ArrayList<>();
-		ArrayList<BarcodedItem> itemlist = new ArrayList<>();
+		itemlist = new ArrayList<>();
+		scanner = new ScanItemController();
 	}
 	
 	/*
@@ -32,11 +36,18 @@ public class ScanItemControllerTest {
 	 */	
 	@Test(expected = SimulationException.class)
 	public void nullProduct() {
-
-		ScanItemController scanner = new ScanItemController();
-		Barcode barcode = null;
-		BarcodedProduct[] productList = null;
-		BarcodedItem[] itemList = null;
+		Numeral[] test_number= {Numeral.one,Numeral.one,Numeral.one,Numeral.one};
+		Barcode barcode = new Barcode(test_number);
+		
+		Numeral[] test_random= {Numeral.two,Numeral.one,Numeral.one,Numeral.one};
+		Barcode barcode_2 = new Barcode(test_random);
+		
+		BigDecimal price = new BigDecimal("10.00");
+		BarcodedProduct barcodedProduct = new BarcodedProduct(barcode_2, "N/A", price);
+		
+		
+		BarcodedProduct[] productList = {barcodedProduct};
+		BarcodedItem[] itemList = {};
 
 		scanner.addItem(barcode, productList, itemList);
 	}
@@ -47,13 +58,21 @@ public class ScanItemControllerTest {
 	 */
 	@Test(expected = SimulationException.class)
 	public void nullItem() {
+		Numeral[] test_number= {Numeral.one,Numeral.one,Numeral.one,Numeral.one};
+		Barcode barcode = new Barcode(test_number);
+		
+		Numeral[] test_random= {Numeral.two,Numeral.one,Numeral.one,Numeral.one};
+		Barcode barcode_2 = new Barcode(test_random);
+		
+		BigDecimal price = new BigDecimal("10.00");
+		BarcodedProduct barcodedProduct = new BarcodedProduct(barcode, "N/A", price);
+		BarcodedProduct productList[] = {barcodedProduct};
+		
+		
+		BarcodedItem item = new BarcodedItem(barcode_2, 10.00);
+		BarcodedItem itemlist[] = {item};
 
-		ScanItemController scanner = new ScanItemController();
-		Barcode barcode = null;
-		BarcodedProduct[] productList = null;
-		BarcodedItem[] itemList = null;
-
-		scanner.addItem(barcode, productList, itemList);
+		scanner.addItem(barcode, productList, itemlist);
 	}
 
 	/*
@@ -64,23 +83,24 @@ public class ScanItemControllerTest {
 	public void correctTotal() {
 
 		
-		Numeral[] test_number = {Numeral.one,Numeral.one,Numeral.one,Numeral.one};
+		Numeral[] test_number= {Numeral.one,Numeral.one,Numeral.one,Numeral.one};
 		//Create an item
 		BigDecimal price = new BigDecimal("10.00");
 		Barcode barcode = new Barcode(test_number);
 		
 		BarcodedProduct barcodedProduct = new BarcodedProduct(barcode, "N/A", price);
-		productList.add(barcodedProduct);
+		
+		BarcodedProduct productList[] = {barcodedProduct};
 		
 		BarcodedItem item = new BarcodedItem(barcode, 10.00);
-
+		BarcodedItem itemlist[] = {item};
 		ScanItemController scanner = new ScanItemController();
 
 		scanner.addItem(barcode, productList, itemlist);
 
 		total = scanner.getTotal();
-
-		assertEquals(10.00, total);
+		
+		assertEquals(price, total);
 	}
 
 	/*
@@ -90,22 +110,24 @@ public class ScanItemControllerTest {
 	@Test
 	public void correctWeight() {
 
-		
+		Numeral[] test_number= {Numeral.one,Numeral.one,Numeral.one,Numeral.one};
 		//Create an item
-		Double price = 10.00 ;
-		Barcode barcode = new Barcode(1111);
-		BarcodedProduct[] productList = new BarcodedProduct[n];
-		BarcodedProduct barcodedProduct = new BardcodedProduct(barcode, "N/A", price)
-		productList.add(barcodedProduct)
-		BarcodedItem[] itemlist = new BarcodedItem[n];
+		BigDecimal price = new BigDecimal("10.00");
+		Barcode barcode = new Barcode(test_number);
+		
+		BarcodedProduct barcodedProduct = new BarcodedProduct(barcode, "N/A", price);
+		BarcodedProduct[] productList = {barcodedProduct};
+		
+		
 		BarcodedItem item = new BarcodedItem(barcode, 10.00);
+		BarcodedItem[] itemlist = {item};
 
 		ScanItemController scanner = new ScanItemController();
 
 		scanner.addItem(barcode, productList, itemlist);
 
-		expectedWeight = getExpectedWeight()
+		expectedWeight = scanner.getExpectedWeight();
 
-		assertEquals(10.00, expectedWeight);
+		assertEquals(10.00, expectedWeight,1);
 	}
 }
