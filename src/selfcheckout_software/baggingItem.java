@@ -11,7 +11,7 @@ import org.lsmr.selfcheckout.devices.SimulationException;
 import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 import org.lsmr.selfcheckout.devices.observers.ElectronicScaleObserver;
 
-public class logic implements ElectronicScaleObserver{
+public class baggingItem implements ElectronicScaleObserver{
 	
 	
 	
@@ -21,7 +21,7 @@ public class logic implements ElectronicScaleObserver{
 	
 	double expectedWeight;
 	
-	public logic(ElectronicScale e) {
+	public baggingItem(ElectronicScale e) {
 		this.electronic = e
 ;	}
 	
