@@ -19,7 +19,7 @@ public class wish_checkout extends AbstractDevice<AbstractDeviceObserver> implem
 		this.electronic = e;
 	}
 	
-	public void wish_checkout(AbstractDeviceObserver payment_method) throws OverloadException, DisabledException  {
+	public void wish_to_checkout(AbstractDeviceObserver payment_method) throws OverloadException, DisabledException  {
 		
 			this.attach(payment_method);
 			while(true) {
@@ -40,7 +40,7 @@ public class wish_checkout extends AbstractDevice<AbstractDeviceObserver> implem
 				}
 				
 			}
-			//....might need to call the matched payment method
+			//....might need to call the matched payment method ///
 			
 	}
 

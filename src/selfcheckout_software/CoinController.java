@@ -12,7 +12,7 @@ public class CoinController implements CoinValidatorObserver, CoinStorageUnitObs
 	
 	private Coin c;
 	private BigDecimal availableFunds = new BigDecimal(0);
-	private Boolean storageFull;
+	private Boolean storageFull = false;
 	
 	public CoinController(Coin c) {
 		this.c = c;
@@ -42,7 +42,16 @@ public class CoinController implements CoinValidatorObserver, CoinStorageUnitObs
 	public BigDecimal getAvailableFunds() {
 		return availableFunds;
 	}
+	
+	public Boolean getStorageFull() {
+		return storageFull;
+	}
+	
+	public void setStorageFull(Boolean value) {
+		storageFull = value;
+	}
 
+	
 	@Override
 	public void coinsFull(CoinStorageUnit unit) {
 		storageFull = true;

@@ -32,11 +32,13 @@ public class test_wish_to_checkout {
 		
 	}
 	
-	@Test(expected = SimulationException.class)
+	@Test
 	public void test_attachment() throws OverloadException, DisabledException {
-		test_object.wish_checkout(payment);
+		test_object.endConfigurationPhase();
+		E.endConfigurationPhase();
+		test_object.wish_to_checkout(payment);
 		test_object.detach(payment);
-		test_object.detach(payment);
+		assertFalse(test_object.detach(payment));
 	}
 	
 	@Test(expected = SimulationException.class)
@@ -45,12 +47,12 @@ public class test_wish_to_checkout {
 		Item test_item1 = new Item(20) {};
 		Item test_item2 = new Item(40) {};
 		E.endConfigurationPhase();
+		test_object.endConfigurationPhase();
 		E.add(test_item1);
 		E.enable();
-		
 		E.add(test_item2);
-		
-		test_object.wish_checkout(payment);
+
+		test_object.wish_to_checkout(payment);
 		
 	}
 	
@@ -60,7 +62,7 @@ public class test_wish_to_checkout {
 		test_object.attach(extra_obStub);
 		E.endConfigurationPhase();
 		test_object.endConfigurationPhase();
-		test_object.wish_checkout(payment);
+		test_object.wish_to_checkout(payment);
 		
 	}
 	
@@ -70,7 +72,7 @@ public class test_wish_to_checkout {
 		E.attach(w_observer);
 		E.endConfigurationPhase();
 		E.enable();
-		test_object.wish_checkout(payment);
+		test_object.wish_to_checkout(payment);
 		assertTrue("this should be true",test_object.isDisabled());
 		
 	}
@@ -81,5 +83,11 @@ public class test_wish_to_checkout {
 		
 	}
 	
+	@Test
+	public void test_not_expected_observer() throws OverloadException, DisabledException {
+		AbstractDeviceObserverStub extra_obStub = new AbstractDeviceObserverStub();
+		test_object.attach(extra_obStub);
+		test_object.accept(payment);
+	} ///
 
 }

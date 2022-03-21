@@ -42,7 +42,7 @@ public class testBagging {
 		this.e = new ElectronicScale(50,1);
 		this.test = new baggingItem(e);
 		item1 = new ItemClass(5);
-		item2 = new ItemClass(50);
+		item2 = new ItemClass(60);
 		item3 = new ItemClass(7);
 		
 	}
@@ -51,22 +51,20 @@ public class testBagging {
 	public void testBaggingItem() throws OverloadException{
 		e.endConfigurationPhase();
 		test.bagItem(item3, e);
-		assertEquals((double)7, test.get_expected_weight(),1);
+		Assert.assertEquals(e.getCurrentWeight(),7.0,0.1);
 		
 	}
 	
-	@Test (expected = OverloadException.class)
+	@Test (expected=OverloadException.class)
 	public void testOverweightLimit() throws OverloadException{
 		e.endConfigurationPhase();
 		test.bagItem(item2, e);
-		test.bagItem(item1, e);
-	}
+
+		}
 	
 	@Test (expected = SimulationException.class)
 	public void testWrongItem() throws OverloadException{
 		e.endConfigurationPhase();
-		
-		test.bagItem(item1, e);
 		e.add(item3);
 		test.bagItem(item1, e);
 	}
