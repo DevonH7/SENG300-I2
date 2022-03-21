@@ -1,6 +1,7 @@
 package selfcheckout_test;
 
 import org.junit.Test;
+import org.lsmr.selfcheckout.devices.SimulationException;
 
 public class ScanItemTest {
 

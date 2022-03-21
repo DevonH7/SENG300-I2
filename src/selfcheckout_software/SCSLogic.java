@@ -24,7 +24,6 @@ public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements 
 	
 	public void wish_checkout(AbstractDeviceObserver payment_method) throws OverloadException, DisabledException  {
 		
-		try {
 			this.attach(payment_method);
 			while(true) {
 				if (!electronic.isDisabled()) {  // keep checking the weight of bagging area, check if the weight has changed
@@ -45,15 +44,6 @@ public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements 
 				
 			}
 			//....might need to call the matched payment method
-			
-		} catch (OverloadException e) {
-			throw e;
-		}catch (DisabledException e) {
-		    throw e;
-		}
-		
-		
-		
 		
 		
 	}
@@ -69,7 +59,11 @@ public class SCSLogic extends AbstractDevice<AbstractDeviceObserver> implements 
 
 	@Override
 	public void accept(AbstractDeviceObserver thing) throws OverloadException, DisabledException {
-			thing.enabled(this);
+		if(observers.size()==1 && observers.contains(thing)) {
+			for(AbstractDeviceObserver A : observers) {
+				A.enabled(this);
+			}
+		}
 	}
 
 

@@ -69,7 +69,7 @@ public class ScanItemController implements BarcodeScannerObserver  {
 		}
 		if(item == null) throw new SimulationException("Barcode does not exist in items");
 		
-		total += product.getPrice();
+		total.add(product.getPrice());
 		expectedWeight += item.getWeight();
 	}
 }
