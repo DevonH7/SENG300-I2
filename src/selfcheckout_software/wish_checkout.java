@@ -40,7 +40,7 @@ public class wish_checkout extends AbstractDevice<AbstractDeviceObserver> implem
 				}
 				
 			}
-			//....might need to call the matched payment method
+			//....might need to call the matched payment method ///
 			
 	}
 

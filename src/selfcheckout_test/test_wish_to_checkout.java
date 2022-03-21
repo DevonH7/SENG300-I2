@@ -88,6 +88,6 @@ public class test_wish_to_checkout {
 		AbstractDeviceObserverStub extra_obStub = new AbstractDeviceObserverStub();
 		test_object.attach(extra_obStub);
 		test_object.accept(payment);
-	}
+	} ///
 
 }
