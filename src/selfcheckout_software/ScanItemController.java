@@ -50,7 +50,7 @@ public class ScanItemController implements BarcodeScannerObserver  {
 	 * @throws SimulationException
 	 *             If there is no product or item with the respective barcode
 	 */
-	public void addItem(Barcode barcode, BarcodedProduct[] productList, BarcodedItem[] itemList){
+	public void addItem(Barcode barcode,ArrayList<BarcodedProduct> productList, ArrayList<BarcodedItem>){
 		BarcodedProduct product = null;
 		BarcodedItem item = null;
 		for(int i = 0; i < productList.length; i++) {
