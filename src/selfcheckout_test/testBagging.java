@@ -27,7 +27,7 @@ class ItemClass extends Item {
 		super(weight);
 	}
 }
-public class logicTest {
+public class testBagging {
 
 	private ElectronicScale e;
 	private ArrayList<Item> list;
@@ -40,7 +40,7 @@ public class logicTest {
 	@Before
 	public void setUp() throws Exception {
 		this.e = new ElectronicScale(50,1);
-		this.test = new logic(e);
+		this.test = new baggingItem(e);
 		item1 = new ItemClass(5);
 		item2 = new ItemClass(50);
 		item3 = new ItemClass(7);
