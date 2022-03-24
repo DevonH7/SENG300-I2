@@ -1,0 +1,49 @@
+
+.metadata/version.ini
+.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+.metadata/.plugins/org.eclipse.ui.intro/introstate
+.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup
+.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.16.3.20211002-1029.xml
+.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml
+.metadata/.plugins/org.eclipse.jdt.launching/.install.xml
+.metadata/.plugins/org.eclipse.jdt.junit.core/history/20220324-163120.551.xml
+.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat
+.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
+.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+.metadata/.plugins/org.eclipse.jdt.core/759083675.index
+.metadata/.plugins/org.eclipse.jdt.core/2128559358.index
+.metadata/.plugins/org.eclipse.jdt.core/1955739418.index
+.metadata/.plugins/org.eclipse.jdt.core/1865797976.index
+.metadata/.plugins/org.eclipse.jdt.core/1497203978.index
+.metadata/.plugins/org.eclipse.jdt.core/1483154928.index
+.metadata/.plugins/org.eclipse.egit.core/.org.eclipse.egit.core.cmp/.project
+.metadata/.plugins/org.eclipse.eclemma.core/.execdata/session2002570488255439489.exec
+.metadata/.plugins/org.eclipse.eclemma.core/.execdata/session16399017224497221521.exec
+.metadata/.plugins/org.eclipse.eclemma.core/.execdata/session14544003848056505488.exec
+.metadata/.plugins/org.eclipse.debug.core/.launches/TestPayCash.launch
+.metadata/.plugins/org.eclipse.debug.core/.launches/Iteration 1 Tests.launch
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.urischeme.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.junit.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs
+.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs
+.metadata/.plugins/org.eclipse.core.resources/0.snap
+.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software - Test/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software - Test/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/SCS - Software - Test/.location
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.syncinfo.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location
+.metadata/.log
+.metadata/.lock
