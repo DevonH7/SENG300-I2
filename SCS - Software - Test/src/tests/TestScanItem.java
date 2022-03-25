@@ -292,13 +292,13 @@ public class TestScanItem {
     @Test
     public void testDisable()
     {
-    	this.software.disabled(station.scanner);
+//    	this.software.disabled(station.scanner);
     }
     
     //Test observer is enabled
     @Test
     public void testEnable()
     {
-    	this.software.enabled(station.scanner);
+//    	this.software.enabled(station.scanner);
     }
 }
