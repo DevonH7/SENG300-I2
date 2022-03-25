@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SCS - Software</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>SCS - Hardware - v2.0</name>
+			<type>2</type>
+			<location>C:/Users/sparr/Desktop/Test/my stuff/SENG300/Project_iter2/SCS - Hardware - v2.0</location>
+		</link>
+	</linkedResources>
+</projectDescription>
