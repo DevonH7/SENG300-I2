@@ -72,6 +72,11 @@ public class TestScanItem {
     private BarcodedProduct soupProd;
     private BarcodedProduct doritoProd;
     
+    //Weights
+    
+    private double soupWeight = 50;
+    private double doritoWeight = 20;
+    
     @Before
     public void setup()
     {
@@ -84,8 +89,8 @@ public class TestScanItem {
         this.doritoItem = new BarcodedItem(doritoBar, 50);
 
         //Set-up products
-        this.soupProd = new BarcodedProduct(soupBar,"Soup",soupPrice);
-        this.doritoProd = new BarcodedProduct(doritoBar,"Soup",doritoPrice);
+        this.soupProd = new BarcodedProduct(soupBar,"Soup",soupPrice,soupWeight);
+        this.doritoProd = new BarcodedProduct(doritoBar,"Soup",doritoPrice,doritoWeight);
     }
 
     //BASIC FUNCTIONALITY TESTING
