@@ -11,6 +11,8 @@ public class MembershipScan implements CardReaderObserver{
 
 	private SelfCheckoutStation station;	
 	
+	private String membershipcard;
+	
 	@Override
 	public void enabled(AbstractDevice<? extends AbstractDeviceObserver> device) {
 		// TODO Auto-generated method stub
@@ -53,9 +55,16 @@ public class MembershipScan implements CardReaderObserver{
 		
 	}
 	
-	
 	public MembershipScan(SelfCheckoutStation station) {
 		this.station = station;
 		station.cardReader.attach(this);
+	}
+	
+	public boolean ScanMembershipCard(Card membercard) {
+		return true;
+	}
+	
+	public boolean CheckMembershipCard(Card membercard) {
+		return true;
 	}
 }
