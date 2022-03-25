@@ -4,10 +4,13 @@ import org.lsmr.selfcheckout.*;
 import org.lsmr.selfcheckout.Card.CardData;
 import org.lsmr.selfcheckout.devices.AbstractDevice;
 import org.lsmr.selfcheckout.devices.CardReader;
+import org.lsmr.selfcheckout.devices.SelfCheckoutStation;
 import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 import org.lsmr.selfcheckout.devices.observers.CardReaderObserver;
 public class MembershipScan implements CardReaderObserver{
 
+	private SelfCheckoutStation station;	
+	
 	@Override
 	public void enabled(AbstractDevice<? extends AbstractDeviceObserver> device) {
 		// TODO Auto-generated method stub
@@ -50,4 +53,9 @@ public class MembershipScan implements CardReaderObserver{
 		
 	}
 	
+	
+	public MembershipScan(SelfCheckoutStation station) {
+		this.station = station;
+		station.cardReader.attach(this);
+	}
 }
