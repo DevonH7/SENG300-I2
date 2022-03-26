@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.lsmr.selfcheckout.*;
 import org.lsmr.selfcheckout.Card.CardData;
 import org.lsmr.selfcheckout.devices.AbstractDevice;
@@ -9,6 +12,8 @@ import org.lsmr.selfcheckout.devices.observers.AbstractDeviceObserver;
 import org.lsmr.selfcheckout.devices.observers.CardReaderObserver;
 public class MembershipScan implements CardReaderObserver{
 
+	private List <Card> Memberships = new ArrayList<Card>();
+	
 	private SelfCheckoutStation station;	
 	
 	private String membershipcard;
@@ -67,4 +72,6 @@ public class MembershipScan implements CardReaderObserver{
 	public boolean CheckMembershipCard(Card membercard) {
 		return true;
 	}
+	
+	
 }
