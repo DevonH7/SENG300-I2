@@ -49,4 +49,5 @@ public interface CardReaderObserver extends AbstractDeviceObserver {
 	 *            The data that was read. Note that this data may be corrupted.
 	 */
 	void cardDataRead(CardReader reader, CardData data);
+
 }
